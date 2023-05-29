@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# This script opens up a man page as a PDF document in Zathura.
+# Depends on zathura, zathura-pdf-mupdf (or zathura-pdf-poppler), and
+# ghostscript.
+
+# Get a name of the man page the user is trying to access.
+page="${1}"
+
+man -t ${page} | ps2pdf - - | zathura -
