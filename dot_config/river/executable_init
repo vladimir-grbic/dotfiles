@@ -136,11 +136,14 @@ done
 
 # Set background and border color
 riverctl background-color 0x88c0d0
-riverctl border-color-focused 0xd8dee9
+riverctl border-color-focused 0x5e81ac
 riverctl border-color-unfocused 0x4c566a
 
 # Set keyboard repeat rate
 riverctl set-repeat 50 300
+
+# Toggle the keyboard layout using the right 'Ctrl' button, swap 'CapsLock' with 'Esc'
+riverctl keyboard-layout -options "grp:rctrl_toggle,caps:swapescape" "us,rs,rs(latin)"
 
 # Make all views with an app-id that starts with "float" and title "foo" start floating.
 riverctl rule-add float -app-id 'float*' -title 'foo'
