@@ -1,0 +1,12 @@
+# Default settings for user directories
+# This file is written by xdg-user-dirs-update
+# The values are relative pathnames from the home directory and
+# will be translated on a per-path-element basis into the users locale
+DESKTOP="$HOME/desktop"
+DOWNLOAD="$HOME/downloads"
+TEMPLATES="$HOME/templates"
+PUBLICSHARE="$HOME/public"
+DOCUMENTS="$HOME/documents"
+MUSIC="$HOME/music"
+PICTURES="$HOME/pictures"
+VIDEOS="$HOME/videos"
