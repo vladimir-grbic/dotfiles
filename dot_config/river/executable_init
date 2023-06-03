@@ -5,8 +5,11 @@
 # Super+Shift+Return to start an instance of alacritty
 riverctl map normal Super+Shift Return spawn alacritty
 
-# Super+Q to close the focused view
-riverctl map normal Super Q close
+# Super+Shift+P to start Tofi launcher
+riverctl map normal Super+Shift P spawn 'tofi-drun --drun-launch=true'
+
+# Super+Shift+Q to close the focused view
+riverctl map normal Super+Shift Q close
 
 # Super+Shift+E to exit river
 riverctl map normal Super+Shift E exit

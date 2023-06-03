@@ -1,0 +1,40 @@
+# Position and size
+anchor = top
+horizontal = true
+height = 24
+width = 100%
+outline-width = 0
+border-width = 0
+scale = true
+
+# Padding
+padding-top = 2
+padding-bottom = 0
+padding-left = 12
+padding-right = 0
+selection-background-padding = 5
+# Whether to clip text drawing to be within the specified padding.
+clip-to-padding = false
+
+# Font
+font = /usr/local/share/fonts/fira/FiraSans-Regular.otf
+font-size = 12
+hint-font = false
+
+# Colors
+# In order: nord4, nord1, nord10, nord11
+text-color = #D8DEE9
+background-color = #2E3440
+selection-color = #D8DEE9
+selection-background = #5E81AC
+
+# Prompt
+prompt-text = "run:  "
+min-input-width = 150
+
+# Results
+result-spacing = 30
+num-results = 10
+# Use fuzzy matching for searches.
+fuzzy-match = false
+history = true
