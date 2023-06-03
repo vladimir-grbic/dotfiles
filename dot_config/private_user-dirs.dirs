@@ -2,11 +2,11 @@
 # This file is written by xdg-user-dirs-update
 # The values are relative pathnames from the home directory and
 # will be translated on a per-path-element basis into the users locale
-DESKTOP="$HOME/desktop"
-DOWNLOAD="$HOME/downloads"
-TEMPLATES="$HOME/templates"
-PUBLICSHARE="$HOME/public"
-DOCUMENTS="$HOME/documents"
-MUSIC="$HOME/music"
-PICTURES="$HOME/pictures"
-VIDEOS="$HOME/videos"
+XDG_DESKTOP_DIR="$HOME/desktop"
+XDG_DOWNLOAD_DIR="$HOME/downloads"
+XDG_TEMPLATES_DIR="$HOME/templates"
+XDG_PUBLICSHARE_DIR="$HOME/public"
+XDG_DOCUMENTS_DIR="$HOME/documents"
+XDG_MUSIC_DIR="$HOME/music"
+XDG_PICTURES_DIR="$HOME/pictures"
+XDG_VIDEOS_DIR="$HOME/videos"

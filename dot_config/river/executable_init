@@ -138,8 +138,9 @@ do
 done
 
 # Set background and border color
-riverctl background-color 0x88c0d0
-riverctl border-color-focused 0x5e81ac
+# In order: nord8, nord3
+swaybg -m fill -i $HOME/pictures/wallpapers/0-main_* &
+riverctl border-color-focused 0x88c0d0
 riverctl border-color-unfocused 0x4c566a
 
 # Set keyboard repeat rate
