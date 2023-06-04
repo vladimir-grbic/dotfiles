@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=Transmission
+Exec=$HOME/.local/bin/transmission_add %U

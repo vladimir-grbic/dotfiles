@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=nnn
+Exec=/usr/local/bin/alacritty -e nnn %f
