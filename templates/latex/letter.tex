@@ -1,0 +1,87 @@
+<+  +>  !comp!  !exe!
+%        File: !comp!expand("%:p:t")!comp!
+%     Created: !comp!strftime("%a %b %d %I:00 %p %Y ").substitute(strftime('%Z'), '\<\(\w\)\(\w*\)\>\(\W\|$\)', '\1', 'g')!comp!
+% Last Change: !comp!strftime("%a %b %d %I:00 %p %Y ").substitute(strftime('%Z'), '\<\(\w\)\(\w*\)\>\(\W\|$\)', '\1', 'g')!comp!
+%
+\documentclass[letterpaper]{letter}
+
+% Encoding, fonts, and languages
+\usepackage[utf8]{inputenc}
+\usepackage[T2A, T1]{fontenc}
+\usepackage[serbian, english]{babel}
+\usepackage{fontawesome5}
+\usepackage{ebgaramond}
+
+% Colors and objects
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{float}
+
+% Mathematics and science
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{siunitx}
+\sisetup{detect-weight=true, detect-family=true}
+
+% Hyperlinks
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,
+    urlcolor=black,
+    citecolor=blue,
+}
+
+% n^th package
+\usepackage[super]{nth}
+
+% Simulate tabbing environment
+\def\addresssymbol#1{\hbox to 1.2em{#1}}%
+
+\begin{document}
+
+% Define a length for the address rule
+\newlength{\addressLength}
+\settowidth{\addressLength}
+{%
+    \addresssymbol{\faEnvelope[regular]}
+    \href{mailto:contact@vladimirgrbic.com}{contact@vladimirgrbic.com}%
+}
+
+\begin{letter}{
+    <+ Receiver's name +> \\
+    <+ Receiver's street +> \\
+    <+ Receiver's city and state +> \\
+    <+ Receiver's country +> \\
+}
+
+\address{
+    Vladimir Grbi\'c \\
+    <+ Sender's street +> \\
+    <+ Sender's city and state +> \\
+    <+ Sender's country +> \\
+    \rule[3pt]{\addressLength}{0.5pt} \\
+    \addresssymbol{\faMobile*}
+        \href{tel:+10123456789}{+1~(012)~345-6789} \\
+    \addresssymbol{\faEnvelope[regular]}
+        \href{mailto:contact@vladimirgrbic.com}{contact@vladimirgrbic.com} \\
+    \addresssymbol{\faGlobeAmericas}
+        \href{https://vladimirgrbic.com}{vladimirgrbic.com}
+}
+
+\date{<++>}
+
+\opening{Dear <+ name +>}
+
+<++>
+
+\signature{Vladimir Grbi\'c}
+\closing{Yours <+ faithfully/truly +>,}
+
+% Enclosure listing
+%\encl{}
+
+\end{letter}
+
+\end{document}

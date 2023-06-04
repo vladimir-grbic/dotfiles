@@ -1,0 +1,54 @@
+<+  +>  !comp!  !exe!
+\documentclass[letterpaper, 10pt]{article}
+
+% Encoding, fonts, and languages
+\usepackage[utf8]{inputenc}
+\usepackage[T2A, T1]{fontenc}
+\usepackage[serbian, english]{babel}
+
+% Colors and objects
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{float}
+
+% Mathematics and science
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{siunitx}
+
+% Hyperlinks
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,
+    urlcolor=black,
+    citecolor=blue,
+}
+
+% Paragraph skip and indentation
+\usepackage{parskip}
+
+% Affiliation
+\usepackage{authblk}
+
+% n^th package
+\usepackage[super]{nth}
+
+% Code environment
+\definecolor{codegray}{gray}{0.9}
+\newcommand{\code}[2][black]{\textcolor{#1}{\colorbox{codegray}{\texttt{#2}}}}
+
+% Opening
+\title{<+ +>}
+\author{Vladimir Grbi\'c}
+\affil{\textit{<++>}}
+\date{<++>}
+
+\begin{document}
+
+\maketitle
+
+<++>
+
+\end{document}
