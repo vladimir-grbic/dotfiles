@@ -1,0 +1,103 @@
+#!/bin/sh
+
+# -------------------
+# Program information
+# -------------------
+
+# Name:        KSS (Keyword Search Script)
+# Author:      Vladimir Grbić (https://www.vladimirgrbic.com)
+# Date:        July 31, 2022
+
+# Description: This script searches recursively through all of the files
+#              (starting from within the current directory) for a given
+#              keyword. Each file containing the keyword will be copied to a
+#              new directory 'kss_results' that will be automatically created.
+#              The file will be appended with line numbers in which the
+#              keyword occurs. Hence, if 'kss_results' directory is empty after
+#              running the script, no desired files were found.
+
+# Arguments:   Accepts only one argument—the keyword to look for.
+
+
+
+# ----------------
+# Global variables
+# ----------------
+
+keyword=$1 # Set the keyword to be the provided argument
+results_directory="kss_results" # Name of the directory where the files will be
+                                # stored
+
+
+
+# --------------------
+# Function definitions
+# --------------------
+
+getFile()
+{
+    # Arguments (mandatory): keyword, file_name, results_directory
+    #
+    # Description:           This function looks for for the keyword in the
+    #                        specified file. If the keyword is found, the file
+    #                        is copied in the directory along with other search
+    #                        results (files containing the keyword).
+
+    # Defining variables
+    local keyword=$1 # Keyword that we are looking for
+    local file_name=$2 # File on which to perform a search
+    local results_directory=$3 # Directory in which the file will be copied
+
+    # Search (case insensitive) for the keyword, print the line number, and
+    # store it in a string variable
+    grep_result=$(grep -ni "$keyword" "$file")
+
+    # Cut the name of the file from the whole path if it is nested in
+    # the subdirectories
+    file_name=$(basename $file)
+
+    # If the keyword was found (grep_result not an empty string) copy the file
+    # and append information with the line numbers on which the keyword was
+    # found
+    if [ ! -z "$grep_result" ]; then
+        cp "$file_name" "$results_directory"
+        echo "--- KSS Results ---" >> "$results_directory"/"$file_name"
+        echo "$grep_result" >> "$results_directory"/"$file_name"
+    fi
+}
+
+
+
+# ---------------------------
+# Start of the program (main)
+# ---------------------------
+
+# Make the directory where the files will be stored
+if [ -d "$results_directory" ]; then
+    rm -rf "$results_directory"
+    mkdir "$results_directory"
+else
+    mkdir "$results_directory"
+fi
+
+# Loop through directories recursively
+for dir in $(find . -type d)
+do
+    # Skip 'results_directory'
+    if [ "$dir" == "$results_directory" ]; then
+        :
+    else
+        # Loop through all of the files in each directory
+        for file in $dir/*
+        do
+            # Skip directories when searching for files
+            if [ ! -f "$file" ]; then
+                :
+            else
+                # If it is a regular file call the function that will copy that
+                # file provided the keyword is to be found
+                getFile "$keyword" "$file" "$results_directory"
+            fi
+        done
+    fi
+done
