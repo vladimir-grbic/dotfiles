@@ -1,0 +1,66 @@
+# Copy to clipboard
+set selection-clipboard clipboard
+
+# Font
+set font "Fira Code"
+
+# Zoom level (default value is 'best-fit', other option is 'width')
+set adjust-open "best-fit"
+
+# Page padding (default value is 1)
+set page-padding 1
+
+# NOTE: The following color scheme is based on Nord Theme
+
+# Normal colors
+set default-fg "#ECEFF4"
+set default-bg "#2E3440"
+
+# Inverted colors (default state)
+set recolor "true"
+set recolor-lightcolor "#2E3440"
+set recolor-darkcolor "#D8DEE9"
+
+# Status bar colors and padding
+set statusbar-fg "#ECEFF4"
+set statusbar-bg "#3B4252"
+set statusbar-h-padding 10
+set statusbar-v-padding 10
+
+# Input bar colors
+set inputbar-fg "#ECEFF4"
+set inputbar-bg "#3B4252"
+
+# Command colors (when using ':')
+set completion-fg "#ECEFF4"
+set completion-bg "#3B4252"
+set completion-highlight-fg "#3B4252"
+set completion-highlight-bg "#88C0D0"
+set completion-group-fg "#88C0D0"
+set completion-group-bg "#3B4252"
+
+# Notification colors
+set selection-notification "true"
+set notification-fg "#ECEFF4"
+set notification-bg "#2E3440"
+set notification-error-fg "#BF616A"
+set notification-error-bg "#2E3440"
+set notification-warning-fg "#EBCB8B"
+set notification-warning-bg "#2E3440"
+
+# Table of content colors
+set index-fg "#ECEFF4"
+set index-bg "#2E3440"
+set index-active-fg "#3B4252"
+set index-active-bg "#88C0D0"
+
+# Render colors
+set render-loading "true"
+set render-loading-fg "#ECEFF4"
+set render-loading-bg "#2E3440"
+
+# Search colors
+set highlight-fg "#A3BE8C"
+set highlight-color "#D08770"
+set highlight-active-color "#B48EAD"
+set highlight-transparency 0.66
