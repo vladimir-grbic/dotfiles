@@ -1,0 +1,79 @@
+{
+    "layer": "top",
+
+    "modules-left": ["river/tags"],
+
+    "modules-center": ["clock"],
+
+    "modules-right": ["custom/language", "custom/memory", "custom/cpu", "custom/network", "custom/backlight", "custom/volume", "battery"],
+
+    "river/tags": {
+        "num-tags": 9,
+	"tag-labels": ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"]
+    },
+
+    "river/mode": {
+        "interval": 1,
+        "format": " {}",
+	"tooltip": false
+    },
+    
+    "clock": {
+        "interval": 1,
+        "format": " {:%Y-%m-%d %T}",
+	"tooltip": false
+    },
+
+    "custom/language": {
+        "exec": "",
+        "interval": 5,
+        "format": " {}%",
+	"tooltip": false
+    },
+
+    "custom/memory": {
+        "exec": "vmstat -s | { read a b ; read c d ; echo $((100*$c/$a)) ; }",
+        "interval": 5,
+        "format": " {}%",
+	"tooltip": false
+    },
+    
+    "custom/cpu": {
+	"exec": "vmstat | awk 'NR==3 {print $(NF-2)+$(NF-1)}'",
+        "interval": 5,
+        "format": " {}%",
+	"tooltip": false
+    },
+
+    "custom/network": {
+        "exec": "wpa_cli status | awk -F'=' 'NR==4 {print $2}'",
+        "interval": 10,
+        "format": " {}",
+	"tooltip": false,
+    },
+    
+    "custom/backlight": {
+        "exec": "backlight | awk '{print $NF}'",
+        "interval": 5,
+        "format": " {}%",
+	"tooltip": false
+    },
+
+    "custom/volume": {
+    	"exec": "mixer -s vol | cut -d : -f 2",
+        "interval": 1,
+    	"format": " {}%",
+	"tooltip": false
+    },
+
+    "battery": {
+        "interval": 60,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+	"tooltip": false
+    }
+}

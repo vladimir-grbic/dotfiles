@@ -1,0 +1,86 @@
+@import "colors.css";
+
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: FiraCode, FontAwesome;
+    font-size: 13px;
+
+    border: none;
+    border-radius: 0;
+    border-bottom: 0;
+
+    margin: 4px 4px 0px 4px;
+    min-height: 0;
+
+    background: @transparent;
+}
+
+#tags button {
+    background: @color_bg;
+    color: @color_fg_dim;
+    margin: 0;
+}
+
+#tags button.occupied {
+    color: @color_fg;
+}
+
+#tags button.focused {
+    background: @color_bg_light;
+    color: @color_fg;
+}
+
+#tags button.urgent {
+    background: @color_bg_warn;
+    color: @color_fg;
+}
+
+#tags button:hover {
+    box-shadow: inherit;
+    text-shadow: inherit;
+    background: inherit;
+}
+
+#mode,
+#clock,
+#custom-language,
+#custom-memory,
+#custom-cpu,
+#custom-network,
+#custom-backlight,
+#custom-volume,
+#battery {
+    background: @color_bg;
+    color: @color_fg;
+    padding: 10px 10px;
+    margin-left: 8px;
+}
+
+#battery.charging {
+    color: @color_good;
+}
+
+#battery.warning {
+    color: @color_warn;
+}
+
+#battery.critical {
+    color: @color_err;
+}
+
+#battery.warning:not(.charging) {
+    background: @color_warn;
+    color: @color_fg;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    to {
+        background-color: @color_bg_light;
+        color: black;
+    }
+}
