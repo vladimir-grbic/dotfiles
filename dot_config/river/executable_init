@@ -2,11 +2,24 @@
 
 # Note: the "Super" modifier is also known as Logo, GUI, Windows, Mod4, etc.
 
-# Super+Shift+Return to start an instance of alacritty
+# Alt+E to launch text editor
+riverctl map normal Alt E spawn 'alacritty -e nvim'
+
+# Alt+F to launch file manager
+riverctl map normal Alt F spawn 'alacritty -e nnn'
+
+# Alt+W to launch web browser
+riverctl map normal Alt W spawn 'firefox &'
+
+# Super+Shift+Return to start an instance of alacritty terminal
 riverctl map normal Super+Shift Return spawn alacritty
 
-# Super+Shift+P to start Tofi launcher
+# Super+Shift+P to start tofi launcher
 riverctl map normal Super+Shift P spawn 'tofi-drun --drun-launch=true'
+
+# Super+Shift+X to lock the session using waylock
+# Colors in order: nord0, nord8, nord11
+riverctl map normal Super+Shift X spawn 'waylock -init-color 0x2e3440 -input-color 0x88c0d0 -fail-color 0xbf616a'
 
 # Super+Shift+Q to close the focused view
 riverctl map normal Super+Shift Q close
@@ -159,3 +172,6 @@ riverctl rule-add csd -app-id "bar"
 # River will send the process group of the init executable SIGTERM on exit.
 riverctl default-layout rivertile
 rivertile -view-padding 6 -outer-padding 6 &
+
+# Launch waybar
+riverctl spawn 'waybar &'
