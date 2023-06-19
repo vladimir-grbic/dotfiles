@@ -1,6 +1,6 @@
 # $FreeBSD$
 #
-# .shrc - bourne shell startup file 
+# .shrc - bourne shell startup file
 #
 # This file will be used if the shell is invoked for interactive use and
 # the environment variable ENV is set to this file.
@@ -29,10 +29,12 @@ export GREP_OPTIONS="--color=always"
 export XDG_RUNTIME_DIR=/var/run/user/`id -u`
 
 # Aliases
-alias ls="ls -G"
-alias v="nvim"
-alias vim="nvim"
 alias history="fc -l -$HISTSIZE"
+alias ls="ls -G"
 alias l='ls -lh'
 alias ll='ls -lahFo'
+alias d="date \"+%Y-%m-%d %H:%M:%S\""
 alias m="$PAGER"
+alias v="nvim"
+alias vim="nvim"
+alias n="nnn"

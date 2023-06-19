@@ -3,7 +3,7 @@
 
     "modules-left": ["river/tags"],
 
-    "modules-center": ["clock"],
+    "modules-center": ["custom/clock"],
 
     "modules-right": ["custom/language", "custom/memory", "custom/cpu", "custom/network", "custom/backlight", "custom/volume", "battery"],
 
@@ -15,13 +15,20 @@
     "river/mode": {
         "interval": 1,
         "format": " {}",
-	"tooltip": false
+        "tooltip": false
     },
-    
+
     "clock": {
         "interval": 1,
         "format": " {:%Y-%m-%d %T}",
-	"tooltip": false
+        "tooltip": false
+    },
+
+    "custom/clock": {
+        "exec": "date \"+%Y-%m-%d %H:%M:%S\"",
+        "interval": 1,
+        "format": " {}",
+	    "tooltip": false
     },
 
     "custom/language": {
@@ -37,7 +44,7 @@
         "format": " {}%",
 	"tooltip": false
     },
-    
+
     "custom/cpu": {
 	"exec": "vmstat | awk 'NR==3 {print $(NF-2)+$(NF-1)}'",
         "interval": 5,
@@ -51,7 +58,7 @@
         "format": " {}",
 	"tooltip": false,
     },
-    
+
     "custom/backlight": {
         "exec": "backlight | awk '{print $NF}'",
         "interval": 5,
