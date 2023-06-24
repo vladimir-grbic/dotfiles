@@ -4,23 +4,23 @@
 font:
   # Normal (roman) font face
   normal:
-    family: "Fira Code"
+    family: "JetBrains Mono Nerd Font"
     style: Light
+    #style: Medium
 
   # Bold font face
   bold:
-    family: "Fira Code"
-    style: Medium
-    #style: Bold
+    family: "JetBrains Mono Nerd Font"
+    style: Bold
 
   # Italic font face
   italic:
-    family: "Fira Code"
+    family: "JetBrains Mono Nerd Font"
     style: "Light Italic"
 
   # Bold italic font face
   bold_italic:
-    family: "Fira Code"
+    family: "JetBrains Mono Nerd Font"
     style: "Bold Italic"
 
   # Point size
@@ -81,6 +81,9 @@ colors:
 # Window configuration
 window:
   opacity: 0.95
+  padding:
+    x: 10
+    y: 10
 
 # Cursor configuration
 cursor:

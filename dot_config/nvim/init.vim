@@ -5,13 +5,17 @@ call plug#begin()
 " Color theme
 Plug 'shaunsingh/nord.nvim'
 
+" Lean and mean status/tabline for vim that's light as air
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 " Insert or delete surroundings in pairs
 Plug 'jiangmiao/auto-pairs'
 
 " Manipulate surroundings in pairs
 Plug 'tpope/vim-surround'
 
-" Comment stuff out.
+" Comment stuff out
 Plug 'tpope/vim-commentary'
 
 " File system explorer
@@ -114,6 +118,9 @@ let g:Tex_GotoError=0
 " Load the color scheme
 let g:nord_disable_background = v:true
 colorscheme nord
+
+" Vim-Airline theme
+let g:airline_theme='nord_minimal'
 
 " REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
 filetype plugin on
