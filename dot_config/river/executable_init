@@ -150,9 +150,11 @@ do
     riverctl map $mode None XF86MonBrightnessDown spawn 'backlight decr 5'
 done
 
-# Set background and border color
-# In order: nord8, nord3
+# Set background
 swaybg -m fill -i $HOME/pictures/wallpapers/0-main_* &
+
+# Set border colors
+# In order: nord8, nord3
 riverctl border-color-focused 0x88c0d0
 riverctl border-color-unfocused 0x4c566a
 
@@ -171,7 +173,7 @@ riverctl rule-add csd -app-id "bar"
 # Set the default layout generator to be rivertile and start it.
 # River will send the process group of the init executable SIGTERM on exit.
 riverctl default-layout rivertile
-rivertile -view-padding 6 -outer-padding 6 &
+rivertile -view-padding 6 -outer-padding 6 -main-ratio 0.5 &
 
 # Launch waybar
 riverctl spawn 'waybar &'
