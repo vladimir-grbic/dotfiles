@@ -14,7 +14,7 @@ PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:$HOME/.local/b
 # if you're sure that you'll never log in via telnet or xterm or a
 # serial line.
 # TERM=xterm; export TERM
-TERM=alacritty; export TERM
+TERM=xterm-256color; export TERM
 
 # Set ENV to a file invoked each time sh is started for interactive use.
 ENV=$HOME/.shrc; export ENV

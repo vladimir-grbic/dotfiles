@@ -5,28 +5,27 @@ call plug#begin()
 " Color theme
 Plug 'shaunsingh/nord.nvim'
 
+" Insert or delete surroundings in pairs
+Plug 'jiangmiao/auto-pairs'
+
+" Manipulate surroundings in pairs
+Plug 'tpope/vim-surround'
+
+" Comment stuff out.
+Plug 'tpope/vim-commentary'
+
 " File system explorer
 Plug 'preservim/nerdtree'
 
 " LaTeX plugin
 Plug 'vim-latex/vim-latex'
 
-" Manipulate surroundings in pairs
-Plug 'tpope/vim-surround'
-
-" Insert or delete surroundings in pairs
-Plug 'jiangmiao/auto-pairs'
-
 " Emmet for HTML
-Plug 'mattn/emmet-vim'
+" Plug 'mattn/emmet-vim'
 
 " Auto close (X)HTML tags
-Plug 'alvan/vim-closetag'
+" Plug 'alvan/vim-closetag'
 
-" Vim Wiki
-" Plug 'vimwiki/vimwiki'
-
-" Initialize plugin system
 call plug#end()
 
 " ---------
@@ -36,10 +35,10 @@ call plug#end()
 " --------- General Settings
 
 " Set tabbing
-:set expandtab
 :set smarttab
-:set tabstop=4
-:set shiftwidth=4
+:set noexpandtab
+:set tabstop=8
+:set shiftwidth=8
 
 " Set word wrapping
 :set wrap
@@ -49,7 +48,7 @@ call plug#end()
 :set number relativenumber
 :set nu rnu
 
-" Make Vim invoke plugins. Required for Vim-LaTeX, VimWiki
+" Make Vim invoke plugins. Required for Vim-LaTeX
 filetype plugin on
 
 " Automatic indentation as you type
@@ -64,8 +63,8 @@ autocmd BufWritePre * %s/\s\+$//e
 " Spell check (au = autocmd)
 au FileType tex setlocal spell spelllang=en_us
 au FileType markdown setlocal spell spelllang=en_us
-autocmd BufRead,BufNewFile *.log setlocal spell spelllang=en_us
-autocmd BufRead,BufNewFile *.txt setlocal spell spelllang=en_us
+au BufRead,BufNewFile *.log setlocal spell spelllang=en_us
+au BufRead,BufNewFile *.txt setlocal spell spelllang=en_us
 
 " ---------
 
@@ -88,13 +87,8 @@ autocmd VimLeave *.tex !texclear %
 
 " --------- Vim-Latex Settings
 
-" IMPORTANT: win32 users will need to have 'shellslash' set so that latex
-" can be called correctly.
-set shellslash
-
-" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
-" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
-" The following changes the default filetype back to 'tex':
+" Change the default filetype of empty .tex files from 'plaintex' to 'tex' to
+" load vim-latex
 let g:tex_flavor='latex'
 
 " TIP: if you write your \label's as \label{fig:something}, then if you
@@ -108,17 +102,8 @@ let g:Tex_DefaultTargetFormat='pdf'
 " Auto compiling for live preview
 let g:vimtex_latexmk_continuous = 1
 
-" Ignore warnings matching first 3 patterns in g:Tex IgnoredWarnings
-let g:tex_IgnoredWarnings =
-    \'Underfull'."\n".
-    \'Overfull'."\n".
-    \'specifier changed to'."\n".
-    \'You have requested'."\n".
-    \'Missing number, treated as zero.'."\n".
-    \'There were undefined references'."\n".
-    \'Citation %.%# undefined'."\n".
-    \'Double space found.'."\n"
-let g:Tex_IgnoredLevel = 7
+" Disable jumping to warning location after the compiling.
+let g:Tex_GotoError=0
 
 " ---------
 
@@ -126,20 +111,16 @@ let g:Tex_IgnoredLevel = 7
 
 " --------- Plugin Settings
 
-" Required for VimWiki
-set nocompatible
-
-" Change VimWiki syntax to markdown
-let g:vimwiki_list = [{'path': '$HOME/documents/vimwiki/',
-	\ 'syntax': 'markdown', 'ext': '.md'}]
-
 " Load the color scheme
 let g:nord_disable_background = v:true
 colorscheme nord
 
+" REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
+filetype plugin on
+
 " Enable Emmet just for html/css
-let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
+" let g:user_emmet_install_global = 0
+" autocmd FileType html,css EmmetInstall
 
 " ---------
 
@@ -148,9 +129,6 @@ autocmd FileType html,css EmmetInstall
 " --------- Keybindings
 
 " Default leader key is '\'
-
-" Open split windows at bottom (sp) and right (vsp)
-set splitbelow splitright
 
 " Use Ctrl + t to toggle NERDTree
 nnoremap <C-t> :NERDTreeToggle<CR>
