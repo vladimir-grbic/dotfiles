@@ -135,9 +135,10 @@ do
     riverctl map $mode None XF86Eject spawn 'camcontrol eject -n cd -u 1 -v'
 
     # Control audio volume
-    riverctl map $mode None XF86AudioRaiseVolume  spawn 'mixer vol +5'
-    riverctl map $mode None XF86AudioLowerVolume  spawn 'mixer vol -5'
-    riverctl map $mode None XF86AudioMute         spawn 'mixer vol | grep '0:0'; [ $? -eq 0 ] && mixer vol 100 || mixer vol 0'
+    riverctl map $mode None XF86AudioRaiseVolume  spawn 'wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+'
+    riverctl map $mode None XF86AudioLowerVolume  spawn 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-'
+    riverctl map $mode None XF86AudioMute         spawn 'wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle'
+    riverctl map $mode None XF86AudioMicMute      spawn 'wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle'
 
     # Control MPRIS aware media players
     riverctl map $mode None XF86AudioMedia spawn 'playerctl play-pause'
@@ -146,8 +147,8 @@ do
     riverctl map $mode None XF86AudioNext  spawn 'playerctl next'
 
     # Control screen backlight brightness
-    riverctl map $mode None XF86MonBrightnessUp   spawn 'backlight incr 5'
-    riverctl map $mode None XF86MonBrightnessDown spawn 'backlight decr 5'
+    riverctl map $mode None XF86MonBrightnessUp   spawn 'brightnessctl set +10%'
+    riverctl map $mode None XF86MonBrightnessDown spawn 'brightnessctl set 10%-'
 done
 
 # Set background
@@ -177,3 +178,6 @@ rivertile -view-padding 6 -outer-padding 6 -main-ratio 0.5 &
 
 # Launch waybar
 riverctl spawn 'waybar &'
+
+# Start pipewire
+riverctl spawn 'pipewire &'

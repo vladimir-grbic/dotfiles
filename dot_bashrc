@@ -1,0 +1,35 @@
+# .bashrc
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+# Set the prompt to ``username@hostname directory $ ''.
+PS1="\e[1m\u@\h \W \\$\e[0m "
+
+# Set vi mode
+set -o vi
+
+# Complete arguments as if they were separate commands.
+# I.e. levere the tab completion settings of other commands.
+complete -cf doas
+
+# Environment variables
+export PATH=/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:$HOME/.local/bin
+export TERM=alacritty
+export EDITOR=nvim
+export VISUAL="$EDITOR"
+export PAGER=less
+export HISTSIZE=1000
+export GREP_OPTIONS="--color=always"
+export XDG_RUNTIME_DIR=/var/run/user/`id -u`
+export PF_INFO="ascii title os kernel pkgs uptime memory de wm shell editor palette"
+
+# Aliases
+alias ls="ls --color=always"
+alias l='ls -lh'
+alias ll='ls -lahFo'
+alias d="date \"+%Y-%m-%d %H:%M:%S\""
+alias m="$PAGER"
+alias v="nvim"
+alias vim="nvim"
+alias n="nnn"

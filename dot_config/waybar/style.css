@@ -2,8 +2,9 @@
 
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: JetBrains Mono Nerd Font, FontAwesome;
-    font-size: 14px;
+    font-family: JetBrains Mono Nerd Font;
+    font-weight: 400;
+    font-size: 10pt;
 
     border: none;
     border-radius: 0;
@@ -43,13 +44,13 @@
 
 #mode,
 #clock,
-#custom-clock,
 #custom-language,
-#custom-memory,
-#custom-cpu,
-#custom-network,
-#custom-backlight,
-#custom-volume,
+#memory,
+#cpu,
+#custom-vpn,
+#network,
+#backlight,
+#wireplumber,
 #battery {
     background: @color_bg;
     color: @color_fg;

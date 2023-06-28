@@ -3,9 +3,9 @@
 
     "modules-left": ["river/tags"],
 
-    "modules-center": ["custom/clock"],
+    "modules-center": ["clock"],
 
-    "modules-right": ["custom/language", "custom/memory", "custom/cpu", "custom/network", "custom/backlight", "custom/volume", "battery"],
+    "modules-right": ["memory", "cpu",  "custom/vpn", "network", "backlight", "wireplumber", "battery"],
 
     "river/tags": {
         "num-tags": 9,
@@ -13,16 +13,13 @@
     },
 
     "river/mode": {
-        "interval": 1,
-        "format": " {}",
-        "tooltip": false
+        "format": " {}"
     },
 
-    "custom/clock": {
-        "exec": "date \"+%Y-%m-%d %H:%M:%S\"",
+    "clock": {
         "interval": 1,
-        "format": " {}",
-	    "tooltip": false
+        "format": "󰃰 {:%Y-%m-%d %H:%M:%S}",
+	"tooltip": false
     },
 
     "custom/language": {
@@ -32,39 +29,48 @@
 	"tooltip": false
     },
 
-    "custom/memory": {
-        "exec": "vmstat -s | { read a b ; read c d ; echo $((100*$c/$a)) ; }",
+    "memory": {
         "interval": 5,
         "format": " {}%",
 	"tooltip": false
     },
 
-    "custom/cpu": {
-	"exec": "vmstat | awk 'NR==3 {print $(NF-2)+$(NF-1)}'",
+    "cpu": {
         "interval": 5,
         "format": " {}%",
 	"tooltip": false
     },
 
-    "custom/network": {
-        "exec": "wpa_cli status | awk -F'=' 'NR==4 {print $2}'",
+    "custom/vpn": {
+        "exec": "if [ -z \"$(doas wg show)\" ]; then echo 󰿆; else echo 󰌾; fi",
         "interval": 10,
-        "format": "  {}",
+        "format": "{} VPN",
+	"tooltip": false
+    },
+
+    "network": {
+        "interface": "wlp61s0",
+        "format": "{ifname}",
+        "format-wifi": "󰖩 {signalStrength}% | {essid}",
+        "format-ethernet": "󰈀 {ipaddr}/{cidr}",
+        "format-disconnected": "󰅛 Offline",
 	"tooltip": false,
+        "max-length": 50
     },
 
-    "custom/backlight": {
-        "exec": "backlight | awk '{print $NF}'",
-        "interval": 5,
-        "format": " {}%",
-	"tooltip": false
+    "backlight": {
+    	"device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": ["󰃞", "󰃝", "󰃠"],
+        "tooltip": false
     },
 
-    "custom/volume": {
-    	"exec": "mixer -s vol | cut -d : -f 2",
-        "interval": 1,
-    	"format": " {}%",
-	"tooltip": false
+    "wireplumber": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰖁",
+        "on-click": "helvum",
+        "max-volume": 150,
+        "format-icons": ["󰕿", "󰖀", "󰕾"]
     },
 
     "battery": {
@@ -73,8 +79,9 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon}  {capacity}%",
-        "format-icons": ["", "", "", "", ""],
+        "format": "{icon} {capacity}%",
+        "format-icons": ["󰂎", "󰁻", "󰁽", "󰁿", "󰂁", "󰁹"],
+	"full-at": 88,
 	"tooltip": false
     }
 }
