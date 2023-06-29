@@ -7,5 +7,5 @@ current_max_cap=$(cat /sys/class/power_supply/BAT0/energy_full)
 factory_max_cap=$(cat /sys/class/power_supply/BAT0/energy_full_design)
 bat_max_cap=$(echo "(${current_max_cap} / ${factory_max_cap}) * 100" | bc -l)
 
-echo "Level\tCapacity\tStatus"
-echo "${bat_level}\t$(printf %.0f ${bat_max_cap})\t${charging_status}"
+printf "%s %s %s\n" "Level" "Capacity" "Status"
+printf "%5d %8d %s\n" ${bat_level} $(printf %.0f ${bat_max_cap}) ${charging_status}

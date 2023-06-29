@@ -21,7 +21,6 @@ export VISUAL="$EDITOR"
 export PAGER=less
 export HISTSIZE=1000
 export GREP_OPTIONS="--color=always"
-export XDG_RUNTIME_DIR=/var/run/user/`id -u`
 export PF_INFO="ascii title os kernel pkgs uptime memory de wm shell editor palette"
 
 # Aliases

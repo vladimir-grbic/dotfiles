@@ -7,4 +7,4 @@
 # Get a name of the man page the user is trying to access.
 page="${1}"
 
-man -t ${page} | ps2pdf - - | zathura -
+man -T pdf ${page} | zathura -
