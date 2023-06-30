@@ -67,7 +67,7 @@
 
     "wireplumber": {
         "format": "{icon} {volume}%",
-        "format-muted": "󰖁",
+        "format-muted": "󰖁 Mute",
         "on-click": "helvum",
         "max-volume": 150,
         "format-icons": ["󰕿", "󰖀", "󰕾"]
@@ -80,8 +80,8 @@
             "critical": 15
         },
         "format": "{icon} {capacity}%",
-        "format-icons": ["󰂎", "󰁻", "󰁽", "󰁿", "󰂁", "󰁹"],
-	"full-at": 88,
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+	"full-at": 100,
 	"tooltip": false
     }
 }
