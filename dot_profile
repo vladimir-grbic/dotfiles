@@ -1,0 +1,7 @@
+# .profile
+
+# Environment variables important for both noninteractive and interactive use.
+export PATH=/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:$HOME/.local/bin
+
+# Get the aliases and functions from the shell's rc file.
+[ -f $HOME/.bashrc ] && . $HOME/.bashrc

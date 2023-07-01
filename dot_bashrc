@@ -1,32 +1,31 @@
 # .bashrc
 
-# If not running interactively, don't do anything
+# If not running interactively, don't do anything.
 [[ $- != *i* ]] && return
 
-# Set the prompt to ``username@hostname directory $ ''.
+# Set the prompt to "username@hostname directory $ " and make it bold.
 PS1="\e[1m\u@\h \W \\$\e[0m "
 
-# Set vi mode
+# Set vi mode.
 set -o vi
 
-# Complete arguments as if they were separate commands.
-# I.e. levere the tab completion settings of other commands.
+# Complete arguments as if they were separate commands when using doas.
+# I.e. leverage the tab completion settings of other commands.
 complete -cf doas
 
-# Environment variables
-export PATH=/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:$HOME/.local/bin
+# Environment variables important for interactive use only.
+export HISTSIZE=1000
 export TERM=alacritty
 export EDITOR=nvim
 export VISUAL="$EDITOR"
 export PAGER=less
-export HISTSIZE=1000
 export GREP_OPTIONS="--color=always"
 export PF_INFO="ascii title os kernel pkgs uptime memory de wm shell editor palette"
 
 # Aliases
-alias ls="ls --color=always"
-alias l='ls -lh'
-alias ll='ls -lahFo'
+alias ls="ls -F --color=always --group-directories-first"
+alias l='ls -lhF'
+alias ll='ls -lahF'
 alias d="date \"+%Y-%m-%d %H:%M:%S\""
 alias m="$PAGER"
 alias v="nvim"
