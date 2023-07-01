@@ -1,7 +1,17 @@
 # .profile
 
+# NOTE: This file is read by every POSIX shell so don't put anythig Bash
+# specific in here.
+
 # Environment variables important for both noninteractive and interactive use.
 export PATH=/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:$HOME/.local/bin
 
-# Get the aliases and functions from the shell's rc file.
-[ -f $HOME/.bashrc ] && . $HOME/.bashrc
+# These must be set before river launches.
+export XDG_SESSION_TYPE=wayland
+export XDG_CURRENT_DESKTOP=river
+export MOZ_ENABLE_WAYLAND=1
+
+# If using bash, get the aliases and functions from bashrc.
+if [ "${0}" = "/bin/bash" ] && [ -f $HOME/.bashrc ]; then
+	. $HOME/.bashrc
+fi
