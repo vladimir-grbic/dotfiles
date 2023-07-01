@@ -26,7 +26,7 @@ riverctl map normal Super+Shift Q close
 
 # Super+Shift+E to exit river
 #riverctl map normal Super+Shift E exit
-riverctl map normal Super+Shift E spawn 'pkill wireplumber; pkill pipewire; riverctl exit'
+riverctl map normal Super+Shift E spawn 'riverctl exit; pkill -f -9 pipewire'
 
 # Super+J and Super+K to focus the next/previous view in the layout stack
 riverctl map normal Super J focus-view next
@@ -181,4 +181,4 @@ rivertile -view-padding 6 -outer-padding 6 -main-ratio 0.5 &
 riverctl spawn 'waybar &'
 
 # Start pipewire
-riverctl spawn 'pipewire &'
+riverctl spawn 'dbus-run-session pipewire &'
