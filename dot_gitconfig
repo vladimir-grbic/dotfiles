@@ -1,5 +1,5 @@
 [user]
-    name = Vladimir Grbić
-    email = contact@vladimirgrbic.com
+	name = Vladimir Grbić
+	email = contact@vladimirgrbic.com
 [init]
-    defaultBranch = main
+	defaultBranch = main
