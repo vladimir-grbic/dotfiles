@@ -12,6 +12,6 @@ export XDG_CURRENT_DESKTOP=river
 export MOZ_ENABLE_WAYLAND=1
 
 # If using bash, get the aliases and functions from bashrc.
-if [ "${0}" = "/bin/bash" ] && [ -f $HOME/.bashrc ]; then
+if [ "${SHELL}" = "/bin/bash" ] && [ -f $HOME/.bashrc ]; then
 	. $HOME/.bashrc
 fi
