@@ -1,5 +1,5 @@
 [Default Applications]
-image/=swayimg.desktop
+image/*=swayimg.desktop
 image/jpg=swayimg.desktop
 image/jpeg=swayimg.desktop
 image/png=swayimg.desktop
@@ -7,38 +7,29 @@ image/bmp=swayimg.desktop
 image/gif=swayimg.desktop
 image/webp=swayimg.desktop
 image/svg+xml=org.inkscape.Inkscape.desktop
+
+video/*=mpv.desktop;
 video/mp4=mpv.desktop
 video/mkv=mpv.desktop
+
 application/pdf=org.pwmt.zathura.desktop
 application/postscript=org.pwmt.zathura.desktop
 image/vnd.djvu=org.pwmt.zathura.desktop
 application/vnd.comicbook-rar=org.pwmt.zathura.desktop
 application/vnd.comicbook+zip=org.pwmt.zathura.desktop
+
+x-scheme-handler/http=firefox.desktop;
+x-scheme-handler/https=firefox.desktop;
+
+x-scheme-handler/terminal=Alacritty.desktop;
+
 text/=text_editor.desktop
 text/plain=text_editor.desktop;
 text/x-shellscript=text_editor.desktop;
-text/html=userapp-Firefox-MTWV51.desktop
 text/htm=firefox.desktop
+
 x-scheme-handler/magnet=torrent_client.desktop;
 application/x-bittorrent=torrent_client.desktop;
-x-scheme-handler/http=userapp-Firefox-MTWV51.desktop
-x-scheme-handler/https=userapp-Firefox-MTWV51.desktop
-x-scheme-handler/chrome=userapp-Firefox-MTWV51.desktop
-application/x-extension-htm=userapp-Firefox-MTWV51.desktop
-application/x-extension-html=userapp-Firefox-MTWV51.desktop
-application/x-extension-shtml=userapp-Firefox-MTWV51.desktop
-application/xhtml+xml=userapp-Firefox-MTWV51.desktop
-application/x-extension-xhtml=userapp-Firefox-MTWV51.desktop
-application/x-extension-xht=userapp-Firefox-MTWV51.desktop
 
-[Added Associations]
-x-scheme-handler/http=userapp-Firefox-SZL351.desktop;userapp-Firefox-MTWV51.desktop;
-x-scheme-handler/https=userapp-Firefox-SZL351.desktop;userapp-Firefox-MTWV51.desktop;
-x-scheme-handler/chrome=userapp-Firefox-SZL351.desktop;userapp-Firefox-MTWV51.desktop;
-text/html=userapp-Firefox-SZL351.desktop;userapp-Firefox-MTWV51.desktop;
-application/x-extension-htm=userapp-Firefox-SZL351.desktop;userapp-Firefox-MTWV51.desktop;
-application/x-extension-html=userapp-Firefox-SZL351.desktop;userapp-Firefox-MTWV51.desktop;
-application/x-extension-shtml=userapp-Firefox-SZL351.desktop;userapp-Firefox-MTWV51.desktop;
-application/xhtml+xml=userapp-Firefox-SZL351.desktop;userapp-Firefox-MTWV51.desktop;
-application/x-extension-xhtml=userapp-Firefox-SZL351.desktop;userapp-Firefox-MTWV51.desktop;
-application/x-extension-xht=userapp-Firefox-SZL351.desktop;userapp-Firefox-MTWV51.desktop;
+x-scheme-handler/sgnl=signal.desktop
+x-scheme-handler/signalcaptcha=signal.desktop

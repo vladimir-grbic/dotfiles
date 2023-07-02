@@ -1,4 +1,4 @@
 [Desktop Entry]
 Type=Application
 Name=Neovim
-Exec=/usr/local/bin/alacritty -e nvim %f
+Exec=/bin/alacritty -e nvim %f
