@@ -11,7 +11,8 @@ main()
 {
 	log_date=$(date +"%Y-%m-%d_%H-%M-%S")
 	log_file=$(mktemp -t river_"${log_date}".XXXXXXXXXX.log)
-	exec dbus-run-session river -log-level debug >"${log_file}" 2>&1
+	#exec dbus-run-session river -log-level debug >"${log_file}" 2>&1
+	exec river -log-level debug >"${log_file}" 2>&1
 }
 
 main "$@"

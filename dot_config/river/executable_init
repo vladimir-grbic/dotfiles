@@ -181,5 +181,4 @@ rivertile -view-padding 6 -outer-padding 6 -main-ratio 0.5 &
 riverctl spawn 'waybar'
 
 # Start pipewire
-#riverctl spawn 'dbus-run-session pipewire'
-riverctl spawn 'pipewire'
+riverctl spawn 'dbus-run-session pipewire'
