@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# If not connected.
+if [ -z "$(wg show)" ]; then
+	# Connect to a random Miami server.
+	interface=$(ls /etc/wireguard/ | grep -oP "^us-mia-wg-.*?(?=\.)" | shuf -n1)
+	wg-quick up "${interface}"
+else
+	# Disconnect.
+	interface=$(wg show | cut -d' ' -f2 | head -n 1)
+	wg-quick down "${interface}"
+fi
