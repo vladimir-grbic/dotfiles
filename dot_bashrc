@@ -15,10 +15,11 @@ complete -cf doas
 
 # Environment variables important for interactive use only.
 export HISTSIZE=1000
-export TERM=alacritty
-export EDITOR=nvim
+export TERM="alacritty"
+export EDITOR="nvim"
 export VISUAL="$EDITOR"
-export PAGER=less
+export PAGER="less"
+export BROWSER="firefox"
 export GREP_OPTIONS="--color=always"
 export PF_INFO="ascii title os kernel pkgs uptime memory de wm shell editor palette"
 
