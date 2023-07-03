@@ -5,9 +5,8 @@ call plug#begin()
 " Color theme
 Plug 'shaunsingh/nord.nvim'
 
-" Lean and mean status/tabline for vim that's light as air
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" A light and configurable statusline/tabline plugin for Vim
+ Plug 'itchyny/lightline.vim'
 
 " Insert or delete surroundings in pairs
 Plug 'jiangmiao/auto-pairs'
@@ -119,8 +118,11 @@ let g:Tex_GotoError=0
 let g:nord_disable_background = v:true
 colorscheme nord
 
-" Vim-Airline theme
-let g:airline_theme='nord_minimal'
+" Lightline.vim already displays the mode information in the statusline.
+set noshowmode
+let g:lightline = {
+      \ 'colorscheme': 'nord',
+      \ }
 
 " REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
 filetype plugin on
