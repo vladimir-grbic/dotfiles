@@ -1,0 +1,59 @@
+= Dotfiles
+Vladimir Grbić <contact@vladimirgrbic.com>
+:description: My dotfiles and custom scripts.
+:url-repo: https://github.com/vladimir-grbic/dotfiles
+:sectanchors:
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+My dotfiles and custom scripts managed using https://www.chezmoi.io/[chezmoi^].
+
+* Configuration files: `~/.config/` and `~`
+* Scripts: `~/.local/bin/`
+
+== Notable Software I Use
+
+=== Core
+
+* Operating system: Void Linux (see
+https://github.com/vladimir-grbic/voidwizard[my setup^])
+* Shell: Bash and Dash (I write exclusively POSIX compliant scripts.)
+* Window manager: river
+* Status bar: Waybar
+* Application launcher: tofi
+* Terminal emulator: Alacritty
+* Text editor: Neovim
+* File manager: nnn
+* Notification daemon: mako
+
+=== Internet
+
+* Web browser: (hardened) Firefox
+* Email client: Thunderbird (I know -- I'll switch to NeoMutt soon.)
+* Video conferencing (web) application: Jitsi
+* Communication software: Signal Messenger
+* RSS reader: newsboat
+* Torrent client: Transmission (CLI)
+
+=== Office
+
+* Markup language: LaTeX, Asciidoc and, on occasion, Markdown
+* Spreadsheet editor: LibreOffice Calc
+* Presentation [.line-through]#tool#: LaTeX (Beamer) and Asciidoc
+* Document viewer: zathura
+
+=== Multimedia
+
+* Image viewer: swayimg and vimiv
+* Music player: Music On Console (MOC)
+* Video player: mpv
+* Image editor: GIMP and ImageMagick
+* Graphics editor: Inkscape
+* Audio recorder: Audacity
+* Video recorder: OBS Studio
+* Video editor: Kdenlive
