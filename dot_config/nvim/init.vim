@@ -17,6 +17,9 @@ Plug 'tpope/vim-surround'
 " Comment stuff out
 Plug 'tpope/vim-commentary'
 
+" A lightweight plugin to remove distractions from Vim.
+Plug 'junegunn/goyo.vim'
+
 " File system explorer
 Plug 'preservim/nerdtree'
 
