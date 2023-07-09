@@ -45,6 +45,7 @@ https://github.com/vladimir-grbic/voidwizard[my setup^])
 * Markup language: LaTeX, Asciidoc and, on occasion, Markdown
 * Spreadsheet editor: LibreOffice Calc
 * Presentation +++<del>+++tool+++</del>+++: LaTeX (Beamer) and Asciidoc
+* Note-taking application: Xournal++
 * Document viewer: zathura
 
 === Multimedia
