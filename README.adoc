@@ -12,6 +12,7 @@ ifdef::env-github[]
 endif::[]
 
 My dotfiles and custom scripts managed using https://www.chezmoi.io/[chezmoi^].
+This repository mirrors the structure of my home directory.
 
 * Configuration files: `~/.config/` and `~`
 * Scripts: `~/.local/bin/`
