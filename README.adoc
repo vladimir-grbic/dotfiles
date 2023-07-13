@@ -21,8 +21,8 @@ This repository mirrors the structure of my home directory.
 
 === Core
 
-* Operating system: Void Linux (see
-https://github.com/vladimir-grbic/voidwizard[my setup^])
+* Operating system: Void Linux (See
+https://github.com/vladimir-grbic/voidwizard[my setup^].)
 * Shell: Bash and Dash (I write exclusively POSIX compliant scripts.)
 * Window manager: river
 * Status bar: Waybar
