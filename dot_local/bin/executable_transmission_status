@@ -1,12 +1,12 @@
 #!/bin/sh
 
-for (( ; ; ))
+while true
 do
-	echo    "---------------------"
-	echo    "Currently Downloading"
-	echo -e "---------------------\n"
+	printf -- "---------------------\n"
+	printf "Currently Downloading\n"
+	printf -- "---------------------\n"
 	transmission-remote -l
-	echo    ""
+	echo
 	sleep 2
 	clear
 done
