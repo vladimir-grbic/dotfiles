@@ -11,6 +11,27 @@ riverctl map normal Alt F spawn 'alacritty -e nnn'
 # Alt+W to launch web browser
 riverctl map normal Alt W spawn 'firefox &'
 
+# Super+PrtSc to take a screenshot of the whole screen
+riverctl map normal Super Print spawn 'grim $(xdg-user-dir PICTURES)/screenshots/screenshot_$(date "+%Y-%m-%d_%H-%M-%S").png'
+
+# Super+Shift+PrtSc to take a screenshot of a part of the screen
+riverctl map normal Super+Shift Print spawn 'grim -g "$(slurp)" $(xdg-user-dir PICTURES)/screenshots/screenshot_$(date "+%Y-%m-%d_%H-%M-%S").png'
+
+# Super+Control+PrtSc to take a screenshot of the whole screen and put the output into the clipboard using wl-clipboard
+riverctl map normal Super+Control Print spawn 'grim - | wl-copy'
+
+# Super+Control+Shift+PrtSc to take a screenshot of a part of the screen and put the output into the clipboard using wl-clipboard
+riverctl map normal Super+Shift+Control Print spawn 'grim -g "$(slurp)" - | wl-copy'
+
+# Super+Alt+PrtSc to capture a video of the whole screen
+riverctl map normal Super+Alt Print spawn 'wf-recorder -f $(xdg-user-dir VIDEOS)/screen_recordings/recording_$(date "+%Y-%m-%d_%H-%M-%S").mp4'
+
+# Super+Alt+Shift+PrtSc to capture a video of a part of the screen
+riverctl map normal Super+Shift+Alt Print spawn 'wf-recorder -g "$(slurp)" -f $(xdg-user-dir VIDEOS)/screen_recordings/recording_$(date "+%Y-%m-%d_%H-%M-%S").mp4'
+
+# Super+Alt+Control+PrtSc to stop the current video capture
+riverctl map normal Super+Alt+Control Print spawn 'pkill --signal SIGINT wf-recorder'
+
 # Super+Shift+Return to start an instance of alacritty terminal
 riverctl map normal Super+Shift Return spawn alacritty
 
@@ -136,10 +157,10 @@ do
     riverctl map $mode None XF86Eject spawn 'camcontrol eject -n cd -u 1 -v'
 
     # Control audio volume
-    riverctl map $mode None XF86AudioRaiseVolume  spawn 'wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+'
-    riverctl map $mode None XF86AudioLowerVolume  spawn 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-'
-    riverctl map $mode None XF86AudioMute         spawn 'wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle'
-    riverctl map $mode None XF86AudioMicMute      spawn 'wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle'
+    riverctl map -repeat $mode None XF86AudioRaiseVolume  spawn 'wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+'
+    riverctl map -repeat $mode None XF86AudioLowerVolume  spawn 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-'
+    riverctl map $mode None XF86AudioMute                 spawn 'wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle'
+    riverctl map $mode None XF86AudioMicMute              spawn 'wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle'
 
     # Control MPRIS aware media players
     riverctl map $mode None XF86AudioMedia spawn 'playerctl play-pause'
@@ -148,8 +169,8 @@ do
     riverctl map $mode None XF86AudioNext  spawn 'playerctl next'
 
     # Control screen backlight brightness
-    riverctl map $mode None XF86MonBrightnessUp   spawn 'brightnessctl set +10%'
-    riverctl map $mode None XF86MonBrightnessDown spawn 'brightnessctl set 10%-'
+    riverctl map -repeat $mode None XF86MonBrightnessUp   spawn 'brightnessctl set +10%'
+    riverctl map -repeat $mode None XF86MonBrightnessDown spawn 'brightnessctl set 10%-'
 done
 
 # Set background
