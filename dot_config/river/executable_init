@@ -2,11 +2,17 @@
 
 # Note: the "Super" modifier is also known as Logo, GUI, Windows, Mod4, etc.
 
-# Alt+E to launch text editor
-riverctl map normal Alt E spawn 'alacritty -e nvim'
+# Alt+E to launch email client
+riverctl map normal Alt E spawn 'thunderbird &'
 
 # Alt+F to launch file manager
 riverctl map normal Alt F spawn 'alacritty -e nnn'
+
+# Alt+M to launch messenger app
+riverctl map normal Alt M spawn 'signal-desktop &'
+
+# Alt+T to launch text editor
+riverctl map normal Alt T spawn 'alacritty -e nvim'
 
 # Alt+W to launch web browser
 riverctl map normal Alt W spawn 'firefox &'
