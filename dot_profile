@@ -4,7 +4,7 @@
 # specific in here.
 
 # Environment variables important for both noninteractive and interactive use.
-export PATH="/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:$HOME/.local/bin"
+export PATH="/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:$HOME/.local/bin:$HOME/.cargo/bin"
 
 # These must be set before river launches.
 export XDG_SESSION_TYPE="wayland"
