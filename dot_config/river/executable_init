@@ -204,6 +204,12 @@ riverctl rule-add csd -app-id "bar"
 riverctl default-layout rivertile
 rivertile -view-padding 6 -outer-padding 6 -main-ratio 0.5 &
 
+# Disabe natural scroll on keyboard. Use "riverctl list-inputs" to get the name.
+TOUCHPAD="pointer-1267-32-Elan_Touchpad"
+riverctl input $TOUCHPAD tap enabled
+riverctl input $TOUCHPAD natural-scroll enabled
+riverctl input $TOUCHPAD disable-while-typing enabled
+
 # Launch waybar
 riverctl spawn 'waybar'
 
