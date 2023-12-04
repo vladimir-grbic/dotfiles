@@ -1,0 +1,14 @@
+{
+  "Comment.nvim": { "branch": "master", "commit": "0236521ea582747b58869cb72f70ccfa967d2e89" },
+  "harpoon": { "branch": "harpoon2", "commit": "581da797f9d66485f841525af596255270c2bcf5" },
+  "lazy.nvim": { "branch": "main", "commit": "96584866b9c5e998cbae300594d0ccfd0c464627" },
+  "lualine.nvim": { "branch": "master", "commit": "2248ef254d0a1488a72041cfb45ca9caada6d994" },
+  "nord.nvim": { "branch": "master", "commit": "0a22a387c92bb3b46e3d245522712ae7497bec38" },
+  "nvim-autopairs": { "branch": "master", "commit": "0f04d78619cce9a5af4f355968040f7d675854a1" },
+  "nvim-surround": { "branch": "main", "commit": "18016d6af52edc9f1c794dcf6665a26a2962d2ee" },
+  "nvim-tree.lua": { "branch": "master", "commit": "7e5c6731804bd892ace56692784290d2fc5a0f74" },
+  "nvim-treesitter": { "branch": "master", "commit": "0791b5ebb590a2d44e20640c52679df1fc42e8ab" },
+  "nvim-web-devicons": { "branch": "master", "commit": "5efb8bd06841f91f97c90e16de85e96d57e9c862" },
+  "plenary.nvim": { "branch": "master", "commit": "55d9fe89e33efd26f532ef20223e5f9430c8b0c0" },
+  "transparent.nvim": { "branch": "main", "commit": "fd35a46f4b7c1b244249266bdcb2da3814f01724" }
+}
