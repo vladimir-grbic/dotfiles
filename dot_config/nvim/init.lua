@@ -1,2 +1,2 @@
 require("vladimir.core")
-require("vladimir.lazy")
+require("vladimir.plugin_manager")

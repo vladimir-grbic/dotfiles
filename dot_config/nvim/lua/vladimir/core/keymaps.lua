@@ -1,4 +1,5 @@
--- Note different modes:
+-- Note: The plugin-specific keymaps are located in the plugin configuration files.
+-- Different modes:
 -- n - normal_mode
 -- i - insert_mode
 -- v - visual_mode
@@ -14,7 +15,9 @@ vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
 
 -- Delete to void register.
+vim.keymap.set("n", "<leader>x", "\"_x")
 vim.keymap.set("n", "<leader>d", "\"_d")
+vim.keymap.set("v", "<leader>x", "\"_x")
 vim.keymap.set("v", "<leader>d", "\"_d")
 
 -- Search the word the cursor is on.
@@ -41,3 +44,7 @@ vim.keymap.set("n", "<C-y>", "<C-u>zz")
 -- Keep search term in the middle of the screen while iterating.
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
+
+-- Increment/decrement numbers.
+vim.keymap.set("n", "<leader>+", "<C-a>")
+vim.keymap.set("n", "<leader>-", "<C-x>")

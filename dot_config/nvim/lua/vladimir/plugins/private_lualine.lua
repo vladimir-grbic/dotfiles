@@ -14,9 +14,24 @@ return {
 
 		lualine.setup({
 			options = {
+				icons_enabled = true,
+				-- theme = "auto",
 				theme = "gruvbox",
+				component_separators = "|",
+				section_separators = "",
 			},
 			sections = {
+				lualine_a = {
+					"mode"
+				},
+				lualine_b = {
+					"branch",
+					"diff",
+					"diagnostics",
+				},
+				lualine_c = {
+					"filename",
+				},
 				lualine_x = {
 					{
 						lazy_status.updates,
@@ -25,6 +40,12 @@ return {
 					{ "encoding" },
 					{ "fileformat" },
 					{ "filetype" },
+				},
+				lualine_y = {
+					"progress"
+				},
+				lualine_z = {
+					"location"
 				},
 			},
 		})
