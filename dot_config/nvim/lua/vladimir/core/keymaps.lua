@@ -25,6 +25,7 @@ vim.keymap.set("n", "<leader>s", "*N")
 
 -- Replace the word the cursor is on.
 vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("v", "<leader>r", [["hy:%s/<C-r>h//g<Left><Left>]])
 
 -- Move blocks of text in visual mode.
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")

@@ -13,4 +13,21 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Add and configure plugins.
-require("lazy").setup("vladimir.plugins")
+require("lazy").setup(
+	{
+		{import = "vladimir.plugins"},
+		-- {import = "vladimir.plugins.lsp"},
+	},
+	{
+		install = {
+			colorscheme = { "gruvbox" },
+		},
+		checker = {
+			enabled = true,
+			notify = false,
+		},
+		change_detection = {
+			notify = false,
+		},
+	}
+)

@@ -9,6 +9,7 @@ local options = {
 	relativenumber = true,     -- set relative numbered lines
 	scrolloff = 10,            -- minimal number of screen lines to keep above and below the cursor
 	shiftwidth = 8,            -- the number of spaces inserted for each indentation
+	showmode = false,          -- displays the mode information in the statusline
 	showtabline = 2,           -- always show tabs
 	signcolumn = "yes",        -- populates the signcolumn with something useful (eg. git, lsp, debugger)
 	smartcase = true,          -- improves search for some patterns

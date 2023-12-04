@@ -1,2 +1,3 @@
-require("vladimir.core.options")
+require("vladimir.core.autocmds")
 require("vladimir.core.keymaps")
+require("vladimir.core.options")
