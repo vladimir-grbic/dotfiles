@@ -39,7 +39,7 @@ vim.keymap.set("n", "J", "mzJ`z")
 
 -- Keep the cursor in the middle of the screen while reading the file.
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-y>", "<C-u>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- Keep search term in the middle of the screen while iterating.
 vim.keymap.set("n", "n", "nzzzv")
