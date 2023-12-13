@@ -25,10 +25,11 @@ export PF_INFO="ascii title os kernel pkgs uptime memory de wm shell editor pale
 
 # Aliases
 alias ls="ls -F --color=always --group-directories-first"
-alias l='ls -lhF'
-alias ll='ls -lahF'
+alias l="ls -lhF"
+alias ll="ls -lahF"
 alias d="date \"+%Y-%m-%d %H:%M:%S\""
 alias m="$PAGER"
+alias f="nnn"
 alias v="nvim"
+alias vi="nvim"
 alias vim="nvim"
-alias n="nnn"

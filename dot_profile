@@ -9,6 +9,9 @@ export PATH="/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:$HOME/
 # These must be set before river launches.
 export XDG_SESSION_TYPE="wayland"
 export XDG_CURRENT_DESKTOP="river"
+export QT_QPA_PLATFORM="wayland-egl"
+export ELM_DISPLAY="wl"
+export SDL_VIDEODRIVER="wayland"
 export MOZ_ENABLE_WAYLAND=1
 
 # If using bash, get the aliases and functions from bashrc.

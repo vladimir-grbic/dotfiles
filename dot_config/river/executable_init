@@ -12,7 +12,7 @@ riverctl map normal Alt F spawn 'alacritty -e nnn'
 riverctl map normal Alt M spawn 'signal-desktop &'
 
 # Alt+T to launch text editor
-riverctl map normal Alt T spawn 'alacritty -e nvim'
+riverctl map normal Alt V spawn 'alacritty -e nvim'
 
 # Alt+W to launch web browser
 riverctl map normal Alt W spawn 'firefox &'
