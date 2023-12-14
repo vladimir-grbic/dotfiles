@@ -52,7 +52,7 @@ set index-fg                "#ebdbb2" # fg
 set index-bg                "#504945" # bg2
 set index-active-fg         "#504945" # bg2
 set index-active-bg         "#83a598" # bright:blue
-#
+
 ## Render colors
 set render-loading          "true"
 set render-loading-fg       "#ebdbb2" # fg

@@ -46,7 +46,7 @@ riverctl map normal Super+Shift P spawn 'tofi-drun --drun-launch=true'
 
 # Super+Shift+X to lock the session using waylock
 # Colors in order: nord0, nord8, nord11
-riverctl map normal Super+Shift X spawn 'waylock -init-color 0x2e3440 -input-color 0x88c0d0 -fail-color 0xbf616a'
+riverctl map normal Super+Shift X spawn 'waylock -init-color 0x282828 -input-color 0x458588 -fail-color 0xcc241d'
 
 # Super+Shift+Q to close the focused view
 riverctl map normal Super+Shift Q close
@@ -184,8 +184,8 @@ swaybg -m fill -i $HOME/pictures/wallpapers/0-main_* &
 
 # Set border colors
 # In order: nord8, nord3
-riverctl border-color-focused 0x88c0d0
-riverctl border-color-unfocused 0x4c566a
+riverctl border-color-focused 0xebdbb2
+riverctl border-color-unfocused 0x928374
 
 # Set keyboard repeat rate
 riverctl set-repeat 50 300
