@@ -10,7 +10,7 @@ return {
 	},
 	config = function()
 		local lualine = require("lualine")
-    		local lazy_status = require("lazy.status") -- to configure lazy pending updates count
+    		local lazy_status = require("lazy.status") -- Used to configure Lazy pending updates count.
 
 		lualine.setup({
 			options = {

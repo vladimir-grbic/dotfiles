@@ -9,9 +9,9 @@ return {
 		"nvim-tree/nvim-web-devicons",
 	},
 	config = function()
-		require("telescope").setup({
-			defaults = {
-				layout_strategy = "cursor",
+		-- require("telescope").setup({
+			-- defaults = {
+				-- layout_strategy = "cursor",
 				-- layout_config = {
 				-- 	cursor = {
 				-- 		prompt_position = "bottom",
@@ -20,13 +20,13 @@ return {
 				-- 		preview_width = 0.5,
 				-- 	},
 				-- },
-				sorting_strategy = "ascending",
-				borderchars = {
-					{ '─', '│', '─', '│', '┌', '┐', '┘', '└'},
-					prompt = {"─", "│", " ", "│", '┌', '┐', "│", "│"},
-					results = {"─", "│", "─", "│", "├", "┤", "┘", "└"},
-					preview = { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
-				},
+				-- sorting_strategy = "ascending",
+				-- borderchars = {
+				-- 	{ '─', '│', '─', '│', '┌', '┐', '┘', '└'},
+				-- 	prompt = {"─", "│", " ", "│", '┌', '┐', "│", "│"},
+				-- 	results = {"─", "│", "─", "│", "├", "┤", "┘", "└"},
+				-- 	preview = { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
+				-- },
 				-- 		path_display = { "truncate " },
 				-- 		mappings = {
 				-- 			i = {
@@ -36,8 +36,8 @@ return {
 				-- 				["<C-q>"] = require("telescope.actions").send_selected_to_qflist, -- quit
 				-- 			},
 				-- 		},
-			},
-		})
+			-- },
+		-- })
 
 		-- Keymaps
 		vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
