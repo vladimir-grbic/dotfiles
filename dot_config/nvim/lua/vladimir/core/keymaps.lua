@@ -25,6 +25,7 @@ vim.keymap.set("v", "<leader>d", "\"_d")
 -- # and * do the same but move the cursor to the previous/next instance.
 -- <C-l> clears the highlights.
 vim.keymap.set("n", "<leader>s", "*N")
+vim.keymap.set("v", "<leader>s", [["hy:let @/=@h<CR>nN]])
 
 -- Replace the word the cursor is on.
 vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
