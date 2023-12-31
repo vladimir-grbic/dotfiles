@@ -1,2 +1,2 @@
-require("vladimir.core")
-require("vladimir.plugin_manager")
+require("core")
+require("plugin_manager")
