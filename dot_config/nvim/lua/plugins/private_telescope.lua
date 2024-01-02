@@ -3,12 +3,17 @@ return {
 	branch = "0.1.x",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
-		-- On your system, install:
+		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		"nvim-tree/nvim-web-devicons",
+		-- Install the following programs on your system:
 		-- - "BurntSushi/ripgrep"
 		-- - "sharkdp/fd"
 	},
 	config = function()
+		local telescope = require("telescope")
 		local builtin = require("telescope.builtin")
+
+		telescope.load_extension("fzf")
 
 		-- Keymaps
 		vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Lists files in cwd, respects .gitignore." })
