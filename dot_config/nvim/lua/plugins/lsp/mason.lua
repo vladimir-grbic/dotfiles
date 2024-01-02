@@ -27,7 +27,7 @@ return {
 		mason_lspconfig.setup({
 			-- List of servers for mason to install.
 			ensure_installed = {
-				"autotools-language-server", -- Make
+				-- "autotools_ls", -- Make
 				"awk_ls",
 				"bashls",
 				"clangd", -- C and C++
