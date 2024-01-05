@@ -11,7 +11,8 @@ set -o vi
 
 # Complete arguments as if they were separate commands when using doas.
 # I.e. leverage the tab completion settings of other commands.
-complete -cf doas
+# complete -cf doas # Without bash-completion installed.
+complete -F _command doas # With bash-completion installed.
 
 # Environment variables important for interactive use only.
 export HISTSIZE=1000
