@@ -1,10 +1,81 @@
 #!/bin/sh
 
-# Select the interface.
+# Function to convert dBm to percentage.
+# -30 dBm is an excellent signal (100% signal strength)
+# -90 dBm is the minimum usable signal (0% signal strength).
+convert_dbm_to_percent() {
+	dbm=$1
+	if [ "$dbm" -ge -30 ]; then
+		echo 100
+	elif [ "$dbm" -le -90 ]; then
+		echo 0
+	else
+		percent=$(( ($dbm + 100) * 100 / 60 ))
+		# Ensure the percentage is capped at 100% and at least 0%.
+		if [ "$percent" -gt 100 ]; then
+			percent=100
+		elif [ "$percent" -lt 0 ]; then
+			percent=0
+		fi
+	fi
+}
+
+# Function for displaying the spinning wheel animation for a specified duration.
+# Parameters:
+# $1: Minimum number of seconds to show the animation.
+show_spinning_wheel() {
+	min_seconds=$1
+	elapsed=0
+	start_time=$(date +%s)  # Using +%s for simplicity.
+
+	# Spinner for a fluid animation.
+	spinner='|/-\\'
+	spinner_length=$(printf "%s" "$spinner" | wc -m)
+
+	while [ "$elapsed" -lt "$min_seconds" ]; do
+		current_time=$(date +%s)
+		elapsed=$((current_time - start_time))
+
+		for i in $(seq 1 $spinner_length); do
+			char=$(printf "%s" "$spinner" | cut -c "$i")
+			printf "\rScanning %c" "$char"
+			sleep 0.1
+		done
+	done
+}
+
+# MAIN PROCEDURE ---------------------------------------------------------------
+
+# Dynamically find the wireless interface name.
 interface_name=$(ip -o link show | awk -F': ' '$2 ~ /^w/ {print $2}')
 
-# Scan for networks.
-wpa_cli scan 1> /dev/null
+# Initiate a Wi-Fi scan on the found interface.
+wpa_cli -i "$interface_name" scan > /dev/null &
 
-# Print the networks.
-wpa_cli scan_results | awk 'NR > 2 && NF==5 { print " - " $5 }'
+# Initiate a Wi-Fi scan on the found interface.
+WPA_CLI_PID=$!
+
+# Wait for the scanning process to complete.
+while kill -0 "$WPA_CLI_PID" 2>/dev/null; do
+	# Show animation for short bursts to check process status.
+	show_spinning_wheel 1
+done
+
+# Ensure the animation shows for at least two more seconds after the process
+# ends.
+show_spinning_wheel 2
+
+# Clear the spinning wheel before printing the results.
+printf "\r\033[K"
+
+# Print the networks that were found.
+# For each row returned, format it by printing signal strength and network name.
+printf "Available WiFi networks:\n\n"
+wpa_cli -i "$interface_name" scan_results | \
+awk 'NR > 2 && NF==5 { print $NF, $3 }' | \
+sort -k2,2nr | \
+while read ssid signal; do
+	convert_dbm_to_percent $signal
+	printf "%3d%% | %s\n" "$percent" "$ssid"
+done
+printf "\n"
