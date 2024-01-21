@@ -27,7 +27,7 @@ show_spinning_wheel() {
 	local start_time=$(date +%s)	# Using +%s for simplicity.
 
 	# Spinner for a fluid animation.
-	local spinner='|/-\\'
+	local spinner='|/-\|'
 	local spinner_length=$(printf "%s" "$spinner" | wc -m)
 
 	while [ "$elapsed" -lt "$min_seconds" ]; do
