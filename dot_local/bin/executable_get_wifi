@@ -3,5 +3,8 @@
 # Select the interface.
 interface_name=$(ip -o link show | awk -F': ' '$2 ~ /^w/ {print $2}')
 
-# Scan for networks and print the output.
-wpa_cli scan 1> /dev/null && wpa_cli scan_results | awk 'NR > 2 && NF==5 { print " - " $5 }'
+# Scan for networks.
+wpa_cli scan 1> /dev/null
+
+# Print the networks.
+wpa_cli scan_results | awk 'NR > 2 && NF==5 { print " - " $5 }'
