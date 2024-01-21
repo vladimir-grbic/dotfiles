@@ -7,8 +7,8 @@
 # Parameters:
 # $1: Singal strength in dBm.
 convert_dbm_to_percent() {
-	dbm=$1
-	percent=$(( ($dbm + 100) * 100 / 60 ))
+	local dbm=$1
+	local percent=$(( ($dbm + 100) * 100 / 60 ))
 	# Ensure the percentage is capped at 100% and at least 0%.
 	if [ "$percent" -gt 100 ]; then
 		percent=100
@@ -22,20 +22,20 @@ convert_dbm_to_percent() {
 # Parameters:
 # $1: Minimum number of seconds to show the animation.
 show_spinning_wheel() {
-	min_seconds=$1
-	elapsed=0
-	start_time=$(date +%s)  # Using +%s for simplicity.
+	local min_seconds=$1
+	local elapsed=0
+	local start_time=$(date +%s)	# Using +%s for simplicity.
 
 	# Spinner for a fluid animation.
-	spinner='|/-\\'
-	spinner_length=$(printf "%s" "$spinner" | wc -m)
+	local spinner='|/-\\'
+	local spinner_length=$(printf "%s" "$spinner" | wc -m)
 
 	while [ "$elapsed" -lt "$min_seconds" ]; do
-		current_time=$(date +%s)
+		local current_time=$(date +%s)
 		elapsed=$((current_time - start_time))
 
 		for i in $(seq 1 $spinner_length); do
-			char=$(printf "%s" "$spinner" | cut -c "$i")
+			local char=$(printf "%s" "$spinner" | cut -c "$i")
 			printf "\rScanning %c" "$char"
 			sleep 0.1
 		done
