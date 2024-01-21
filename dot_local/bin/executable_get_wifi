@@ -65,7 +65,10 @@ show_spinning_wheel 2
 
 # Print the networks that were found.
 # For each row returned, format it by printing signal strength and network name.
-printf "Available WiFi networks:\n\n"
+printf "\n"
+printf " #   Strength  Name\n"
+printf "%s\n" "-----------------------------------------------"
+i=1
 wpa_cli scan_results | \
 awk 'BEGIN{OFS=","} NR > 2 {
 	signal = $3; # Signal strength in dBm.
@@ -78,7 +81,14 @@ awk 'BEGIN{OFS=","} NR > 2 {
 }' | \
 sort -k1,1nr | \
 while IFS=',' read -r signal ssid; do
+	# Do not print more than 99 results.
+	if [ "$i" -gt 99 ]; then
+		break
+	fi
+
 	percent=$(convert_dbm_to_percent "$signal")
-	printf "%3d%% | %s\n" "$percent" "$ssid"
+	printf "%2d.    %3d%%    %s\n" "$i" "$percent" "$ssid"
+
+	i=$((i+1))
 done
 printf "\n"
