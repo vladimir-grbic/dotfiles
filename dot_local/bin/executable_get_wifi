@@ -1,23 +1,21 @@
 #!/bin/sh
 
 # Function to convert dBm to percentage.
+# Note:
 # -30 dBm is an excellent signal (100% signal strength)
 # -90 dBm is the minimum usable signal (0% signal strength).
+# Parameters:
+# $1: Singal strength in dBm.
 convert_dbm_to_percent() {
 	dbm=$1
-	if [ "$dbm" -ge -30 ]; then
-		echo 100
-	elif [ "$dbm" -le -90 ]; then
-		echo 0
-	else
-		percent=$(( ($dbm + 100) * 100 / 60 ))
-		# Ensure the percentage is capped at 100% and at least 0%.
-		if [ "$percent" -gt 100 ]; then
-			percent=100
-		elif [ "$percent" -lt 0 ]; then
-			percent=0
-		fi
+	percent=$(( ($dbm + 100) * 100 / 60 ))
+	# Ensure the percentage is capped at 100% and at least 0%.
+	if [ "$percent" -gt 100 ]; then
+		percent=100
+	elif [ "$percent" -lt 0 ]; then
+		percent=0
 	fi
+	echo $percent
 }
 
 # Function for displaying the spinning wheel animation for a specified duration.
@@ -42,17 +40,17 @@ show_spinning_wheel() {
 			sleep 0.1
 		done
 	done
+
+	# Clear the line that printed the spinning wheel.
+	printf "\r\033[K"
 }
 
 # MAIN PROCEDURE ---------------------------------------------------------------
 
-# Dynamically find the wireless interface name.
-interface_name=$(ip -o link show | awk -F': ' '$2 ~ /^w/ {print $2}')
+# Initiate a Wi-Fi scan.
+wpa_cli scan > /dev/null &
 
-# Initiate a Wi-Fi scan on the found interface.
-wpa_cli -i "$interface_name" scan > /dev/null &
-
-# Initiate a Wi-Fi scan on the found interface.
+# Get the PID of "wpa_cli scan".
 WPA_CLI_PID=$!
 
 # Wait for the scanning process to complete.
@@ -65,17 +63,22 @@ done
 # ends.
 show_spinning_wheel 2
 
-# Clear the spinning wheel before printing the results.
-printf "\r\033[K"
-
 # Print the networks that were found.
 # For each row returned, format it by printing signal strength and network name.
 printf "Available WiFi networks:\n\n"
-wpa_cli -i "$interface_name" scan_results | \
-awk 'NR > 2 && NF==5 { print $NF, $3 }' | \
-sort -k2,2nr | \
-while read ssid signal; do
-	convert_dbm_to_percent $signal
+wpa_cli scan_results | \
+awk 'BEGIN{OFS=","} NR > 2 {
+	signal = $3; # Signal strength in dBm.
+	ssid = $NF;  # Capture the last field as SSID.
+
+	# Skip SSIDs that start with '['.
+	if (substr(ssid, 1, 1) == "[") next;
+
+	print signal, ssid
+}' | \
+sort -k1,1nr | \
+while IFS=',' read -r signal ssid; do
+	percent=$(convert_dbm_to_percent "$signal")
 	printf "%3d%% | %s\n" "$percent" "$ssid"
 done
 printf "\n"
