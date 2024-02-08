@@ -4,7 +4,7 @@
 [[ $- != *i* ]] && return
 
 # Set the prompt to "username@hostname directory $ " and make it bold.
-PS1="\e[1m\u@\h \W \\$\e[0m "
+PS1="\[\e[1m\]\u@\h \W \$\[\e[0m\] "
 
 # Set vi mode.
 set -o vi
